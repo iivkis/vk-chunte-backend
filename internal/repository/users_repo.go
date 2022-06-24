@@ -10,17 +10,21 @@ import (
 )
 
 type UsersRepo struct {
-	*Store
+	store *store
 }
 
-func NewUsersRepo(store *Store) *UsersRepo {
-	return &UsersRepo{store}
+func NewUsersRepo(store *store) *UsersRepo {
+	return &UsersRepo{store: store}
 }
 
-func (r *UsersRepo) scan(row *sql.Row) (*entities.User, error) {
-	u := new(entities.User)
-	err := row.Scan(&u.ID, &u.VkID, &u.Name, &u.Age)
-	return u, err
+func (r *UsersRepo) scan(row *sql.Row) (user *entities.User, err error) {
+	err = row.Scan(
+		&user.ID,
+		&user.VkID,
+		&user.Name,
+		&user.Age,
+	)
+	return
 }
 
 func (r *UsersRepo) Create(ctx context.Context, user *entities.User) (*entities.User, error) {
@@ -30,13 +34,12 @@ func (r *UsersRepo) Create(ctx context.Context, user *entities.User) (*entities.
 		age 
 	) VALUES ($1, $2, $3) RETURNING *;`
 
-	row := r.db.QueryRowContext(ctx, query, user.VkID, user.Name, user.Age)
+	row := r.store.db.QueryRowContext(ctx, query, user.VkID, user.Name, user.Age)
 	if err := row.Err(); err != nil {
 		return nil, err
 	}
 
-	u, err := r.scan(row)
-	return u, err
+	return r.scan(row)
 }
 
 func (r *UsersRepo) Update(ctx context.Context, id int, user *entities.User) (*entities.User, error) {
@@ -46,12 +49,11 @@ func (r *UsersRepo) Update(ctx context.Context, id int, user *entities.User) (*e
 	}
 
 	query := "UPDATE users SET " + fields + " WHERE id = " + strconv.Itoa(id) + " RETURNING *;"
-	row := r.db.QueryRowContext(ctx, query, values...)
 
+	row := r.store.db.QueryRowContext(ctx, query, values...)
 	if err := row.Err(); err != nil {
 		return nil, err
 	}
 
-	u, err := r.scan(row)
-	return u, err
+	return r.scan(row)
 }

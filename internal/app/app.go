@@ -4,15 +4,15 @@ import (
 	"fmt"
 
 	"github.com/iivkis/vk-chunte/config"
-	"github.com/iivkis/vk-chunte/internal/server/restfull"
+	"github.com/iivkis/vk-chunte/internal/api/restful"
+	"github.com/iivkis/vk-chunte/internal/repository"
 )
 
 func Launch() {
-	// repo := repository.NewRespository()
+	repo := repository.NewRespository()
+	httpServer := restful.NewRESTFul(repo)
 
-	httpServer := restfull.NewRESTFullServer()
-
-	if err := httpServer.Start(fmt.Sprintf("%s:%s", config.HOST, config.PORT)); err != nil {
+	if err := httpServer.RunServer(fmt.Sprintf("%s:%s", config.HOST, config.PORT)); err != nil {
 		panic(err)
 	}
 }

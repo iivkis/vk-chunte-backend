@@ -7,11 +7,11 @@ import (
 	_ "github.com/lib/pq"
 )
 
-type Store struct {
+type store struct {
 	db *sql.DB
 }
 
-func NewStore() *Store {
+func newStore() *store {
 	db, err := sql.Open("postgres", config.DB_URL)
 	if err != nil {
 		panic(err)
@@ -21,5 +21,5 @@ func NewStore() *Store {
 		panic(err)
 	}
 
-	return &Store{db: db}
+	return &store{db: db}
 }

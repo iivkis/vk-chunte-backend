@@ -1,4 +1,4 @@
-package rfcv1
+package restfulhv1
 
 import (
 	"net/http"
