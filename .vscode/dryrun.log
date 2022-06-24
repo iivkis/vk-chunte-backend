@@ -1,0 +1,5 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/����/go/src/vk-chatting-backend'
+go build -o server.exe ./cmd/app/main.go && ./server.exe
+make: Leaving directory 'c:/Users/����/go/src/vk-chatting-backend'
+ 

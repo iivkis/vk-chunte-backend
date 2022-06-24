@@ -1,0 +1,1 @@
+{"buildTargets":[".PHONY","build-run","create-db","migrate-down","migrate-up","postgres-restart","postgres-start","postgres-stop","sqlc-gen"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

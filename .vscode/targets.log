@@ -1,0 +1,437 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
+# GNU Make 4.3
+# Built for Windows32
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Wed Jun 22 00:21:19 2022
+
+# Variables
+
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+SYSTEMDRIVE = C:
+# environment
+LC_ALL = C
+# environment
+USERPROFILE = C:\Users\����
+# environment
+LOCALAPPDATA = C:\Users\����\AppData\Local
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-735d8440-3b58-42f6-b8a2-ed899ef93ddd-sock
+# environment
+VSCODE_CWD = C:\Program Files\Microsoft VS Code
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+POSN_SECRET = @secret!pos
+# environment
+SYSTEMROOT = C:\WINDOWS
+# environment
+PROCESSOR_LEVEL = 23
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
+# environment
+GOPATH = C:\Users\����\go
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+TGBOT_MSG_ANON_USERNAME = msg_anon_dev_bot
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_3236_LGIWSVRNHAILIYGJ
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# makefile (from '.env', line 5)
+HOST = localhost
+# environment
+POSN_SEL_S3_SECRET_KEY = Wxh3Tx@p1x
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\����\AppData\Roaming\Code\CachedData\30d9c6cd9483b2cc586687151bcbcd635f373630
+# environment
+LANG = C
+# makefile (from '.env', line 9)
+DB_NAME = "vk-chunte"
+# makefile (from '.env', line 13)
+DB_PORT = "5432"
+# default
+.LOADED := 
+# environment
+TMP = C:\Users\3C8A~1\AppData\Local\Temp
+# default
+.INCLUDE_DIRS = .
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# makefile
+MAKEFLAGS = pqrR
+# environment
+GOLAND_VM_OPTIONS = C:\ja-netfilter\vmoptions\goland.vmoptions
+# environment
+ONEDRIVE = C:\Users\����\OneDrive
+# environment
+POWERSHELL_DISTRIBUTION_CHANNEL = MSI:Windows 10 Enterprise
+# makefile
+CURDIR := c:/Users/����/go/src/vk-chatting-backend
+# environment
+POSN_EMAIL_LOGIN = razmolodin123@yandex.ru
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+JETBRAINSCLIENT_VM_OPTIONS = C:\ja-netfilter\vmoptions\jetbrainsclient.vmoptions
+# makefile (from '.env', line 6)
+PORT = 80
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# environment
+TGBOT_MSG_ANON_TOKEN = 5269457098:AAE6MJk5KMpzv6A3yMTcrfrWaWhQoA8qpjE
+# makefile (from '.env', line 1)
+MAKEFILE_LIST := Makefile .env
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 3236
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# environment
+CLION_VM_OPTIONS = C:\ja-netfilter\vmoptions\clion.vmoptions
+# environment
+POSN_OUT_PORT = 80
+# environment
+PROXY_HTTP_PROTO = https
+# automatic
+*F = $(notdir $*)
+# environment
+APPCODE_VM_OPTIONS = C:\ja-netfilter\vmoptions\appcode.vmoptions
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# environment
+POSN_EMAIL_PWD = Razmolodin1@1
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ru","availableLanguages":{},"_languagePackSupport":true}
+# environment
+ASU_SCHED_GP_ID = 186000727
+# environment
+ONEDRIVECONSUMER = C:\Users\����\OneDrive
+# default
+MAKE_HOST := Windows32
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := C:/Program Files/Git/bin/sh.exe
+# environment
+HOMEPATH = \Users\����
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WINDIR = C:\WINDOWS
+# environment
+PHPSTORM_VM_OPTIONS = C:\ja-netfilter\vmoptions\phpstorm.vmoptions
+# environment
+RUBYMINE_VM_OPTIONS = C:\ja-netfilter\vmoptions\rubymine.vmoptions
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = C:\Python310\Scripts\;C:\Python310\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Nginx;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\PuTTY\;C:\Program Files\Graphviz\bin;C:\Program Files\PowerShell\7\;C:\Program Files (x86)\WinSCP\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Go\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\����\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\����\AppData\Local\Programs\Python\Python39\;C:\Users\����\AppData\Local\Microsoft\WindowsApps;C:\Program Files\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin;C:\Users\����\.dotnet\tools;C:\Program Files\heroku\bin;C:\Users\����\AppData\Roaming\npm;C:\Program Files\JetBrains\DataGrip 2022.1.4\bin;;C:\Users\����\go\bin
+# environment
+COMPUTERNAME = DESKTOP-9UNF01E
+# default
+MAKEFILES := 
+# makefile (from '.env', line 14)
+DB_URL = "postgresql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable"
+# automatic
+^F = $(notdir $^)
+# makefile (from '.env', line 11)
+DB_PASSWORD = "root"
+# environment
+PROMPT = $P$G
+# environment
+POSN_OUT_PROTOCOL = http
+# environment
+CHOCOLATEYLASTPATHUPDATE = 132941528562431055
+# environment
+WEBIDE_VM_OPTIONS = C:\ja-netfilter\vmoptions\webide.vmoptions
+# environment
+PYCHARM_VM_OPTIONS = C:\ja-netfilter\vmoptions\pycharm.vmoptions
+# environment
+RIDER_VM_OPTIONS = C:\ja-netfilter\vmoptions\rider.vmoptions
+# environment
+POSN_DATABASE_PWD = AjKZwdoH
+# environment
+IDEA_VM_OPTIONS = C:\ja-netfilter\vmoptions\idea.vmoptions
+# environment
+LOGONSERVER = \\DESKTOP-9UNF01E
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+USERNAME = IvanR
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+DATAGRIP_VM_OPTIONS = C:\ja-netfilter\vmoptions\datagrip.vmoptions
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+# environment
+WEBSTORM_VM_OPTIONS = C:\ja-netfilter\vmoptions\webstorm.vmoptions
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = DESKTOP-9UNF01E
+# environment
+POSN_DATABASE_IP = 141.8.193.236
+# 'override' directive
+GNUMAKEFLAGS := 
+# makefile (from '.env', line 12)
+DB_HOST = "localhost"
+# environment
+OS = Windows_NT
+# environment
+DATASPELL_VM_OPTIONS = C:\ja-netfilter\vmoptions\dataspell.vmoptions
+# makefile
+.DEFAULT_GOAL := build-run
+# environment
+POSN_SEL_S3_ACCESS_KEY = 208856_API
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+POSN_DATABASE_NAME = f0602327_posninja
+# environment
+POSN_DATABASE_LOGIN = f0602327_posninja
+# environment
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-9UNF01E
+# environment
+NUMBER_OF_PROCESSORS = 12
+# environment
+NODE_TLS_REJECT_UNAUTHORIZED = 0
+# environment
+PUBLIC = C:\Users\Public
+# environment
+JETBRAINS_CLIENT_VM_OPTIONS = C:\ja-netfilter\vmoptions\jetbrains_client.vmoptions
+# environment
+APPDATA = C:\Users\����\AppData\Roaming
+# environment
+ASU_SCHED_GP_TOKEN = 16c9bb6f2d3aecff7bd418d2e883b9865e729fc34c7392200e0458b814558ce60f5b0687bbf5bf540e25d
+# environment
+POSN_OUT_HOST = localhost
+# makefile (from '.env', line 10)
+DB_USER = "root"
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+GOMODCACHE = C:\Users\����\go\pkg\mod
+# environment
+DATAGRIP = C:\Program Files\JetBrains\DataGrip 2022.1.4\bin;
+# environment
+VSCODE 
+_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\3C8A~1\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\8c8ca0de29b0f05b1c14281bd6a216f8-1.68.1-main-sock
+# environment
+GOPROXY = https://proxy.golang.org,direct
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# environment
+POSN_SEL_S3_BACKET = pos-7era
+# environment
+POSN_SERVER_NAME = DEV SERVER - IVAN
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+# environment
+PROCESSOR_REVISION = 6001
+# environment
+GATEWAY_VM_OPTIONS = C:\ja-netfilter\vmoptions\gateway.vmoptions
+# makefile (from '.env', line 2)
+APP_NAME = "VK Chatting"
+# environment
+PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
+# variable set hash-table stats:
+# Load=146/1024=14%, Rehash=0, Collisions=21/174=12%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (key c:/Users/����/go/src/vk-chatting-backend, mtime 1655829704): 11 files, no impossibilities.
+
+# 11 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+postgres-start:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 8):
+	docker start postgres14
+
+sqlc-gen:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
+	sqlc generate
+
+# Not a target:
+.env:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-21 17:17:04
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-21 17:23:58
+#  File has been updated.
+#  Successfully updated.
+
+postgres-restart:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 14):
+	docker restart postgres14
+
+build-run:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 5):
+	go build -o server.exe ./cmd/app/main.go && ./server.exe
+
+postgres-stop:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 11):
+	docker stop postgres14
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+create-db:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 23):
+	docker exec -it postgres14 createdb --username=root --owner=root vk-chunte
+
+migrate-down:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 20):
+	migrate -path internal/repository/migration -database=${DB_URL} -verbose down
+
+.PHONY: postgres-start postgres-stop postgres-restart create-db migrate-up migrate-down
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+migrate-up:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 17):
+	migrate -path internal/repository/migration -database=${DB_URL} -verbose up
+
+# files hash-table stats:
+# Load=14/1024=1%, Rehash=0, Collisions=0/32=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 23 / storage = 201 B / avg = 8 B
+# current buf: size = 8174 B / used = 201 B / count = 23 / avg = 8 B
+
+# strcache performance: lookups = 46 / hit rate = 50%
+# hash-table stats:
+# Load=23/8192=0%, Rehash=0, Collisions=0/46=0%
+# Finished Make data base on Wed Jun 22 00:21:19 2022
+
+ 
