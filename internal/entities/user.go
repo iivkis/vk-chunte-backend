@@ -6,10 +6,10 @@ import (
 )
 
 type User struct {
-	ID        *uint     `json:"id"`
-	VkID      *uint     `json:"vk_id"`
-	Name      *string   `json:"name"`
-	Age       *uint     `json:"age"`
+	ID        *int      `json:"id" db:"db"`
+	VkID      *uint     `json:"vk_id" db:"vk_id"`
+	Name      *string   `json:"name" db:"name"`
+	Age       *uint     `json:"age" db:"age"`
 	CreatedAt time.Time `json:"created_at"`
 }
 

@@ -3,8 +3,10 @@ package repository
 import (
 	"context"
 	"database/sql"
+	"strconv"
 
 	"github.com/iivkis/vk-chunte/internal/entities"
+	"github.com/iivkis/vk-chunte/internal/util"
 )
 
 type UsersRepo struct {
@@ -37,13 +39,14 @@ func (r *UsersRepo) Create(ctx context.Context, user *entities.User) (*entities.
 	return u, err
 }
 
-func (r *UsersRepo) Update(ctx context.Context, id uint, user *entities.User) (*entities.User, error) {
-	query := `UPDATE users SET name = $2,  age = $3 WHERE id = $1 RETURNING *;`
+func (r *UsersRepo) Update(ctx context.Context, id int, user *entities.User) (*entities.User, error) {
+	fields, values, err := util.StructToSQLParams(user)
+	if err != nil {
+		return nil, err
+	}
 
-	row := r.db.QueryRowContext(ctx, query, id,
-		user.Name,
-		user.Age,
-	)
+	query := "UPDATE users SET " + fields + " WHERE id = " + strconv.Itoa(id) + " RETURNING *;"
+	row := r.db.QueryRowContext(ctx, query, values...)
 
 	if err := row.Err(); err != nil {
 		return nil, err

@@ -47,14 +47,18 @@ func TestCreateUser(t *testing.T) {
 }
 
 func TestUpdateUser(t *testing.T) {
-
 	user := createUser(t)
 
 	newAge := uint(54)
 
-	user1, err := repo.Users.Update(context.Background(), *user.ID, &entities.User{
+	updatedUserFields := &entities.User{
 		Age: &newAge,
-	})
+	}
+
+	user1, err := repo.Users.Update(context.Background(), *user.ID, updatedUserFields)
+
 	require.NoError(t, err)
-	require.NotEqual(t, user.Name, user1.Name)
+	require.Equal(t, *user1.ID, *user.ID)
+	require.Equal(t, *user1.Name, *user.Name)
+	require.Equal(t, *user1.Age, *updatedUserFields.Age)
 }

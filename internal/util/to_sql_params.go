@@ -1,38 +1,48 @@
 package util
 
 import (
+	"fmt"
 	"reflect"
 	"strconv"
 	"strings"
 )
 
-//use tag "db" in structs
-func StructToSQLParams(structure interface{}, initialInsertionIndex int) (combinedInsertionFields string, insertionValues []interface{}) {
-	typeof := reflect.TypeOf(structure)
-
+// takes a pointer to the structure
+// use tag "db" in structs as field name
+// return combined insertionfields in format "name = $1, age = $2"
+func StructToSQLParams(structure interface{}) (combinedInsertionFields string, insertionValues []interface{}, err error) {
+	typeof := reflect.TypeOf(structure).Elem()
 	if typeof.Kind() != reflect.Struct {
 		return
 	}
 
-	valueof := reflect.ValueOf(structure)
+	valueof := reflect.ValueOf(structure).Elem()
 
-	var insertionFields []string
+	var (
+		insertionFieldIndex = 1
+		insertionFields     = []string{}
+	)
+
 	for i := 0; i < typeof.NumField(); i++ {
-		nameInDB, ok := typeof.Field(i).Tag.Lookup("db")
+		fieldName, ok := typeof.Field(i).Tag.Lookup("db")
 		if !ok {
 			continue
 		}
 
 		fieldValue := valueof.Field(i)
-		if fieldValue.IsNil() {
+		if fieldValue.Kind() == reflect.Ptr && fieldValue.IsNil() {
 			continue
 		}
 
-		insertionFields = append(insertionFields, nameInDB+" = $"+strconv.Itoa(initialInsertionIndex))
-		initialInsertionIndex++
+		insertionFields = append(insertionFields, fieldName+" = $"+strconv.Itoa(insertionFieldIndex))
+		insertionFieldIndex++
 
 		insertionValues = append(insertionValues, fieldValue.Interface())
 	}
 
-	return strings.Join(insertionFields, ", "), insertionValues
+	if len(insertionFields) == 0 {
+		return "", insertionValues, fmt.Errorf("there are no inserted fields")
+	}
+
+	return strings.Join(insertionFields, ", "), insertionValues, nil
 }
