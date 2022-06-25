@@ -1,22 +1,23 @@
 package util
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 	"strconv"
 	"strings"
 )
 
+var ErrMustBePointerToStruct = errors.New("the argument must be a pointer to the structure")
+
 // takes a pointer to the structure
 // use tag "db" in structs as field name
 // return combined insertionfields in format "name = $1, age = $2"
 func StructToInsertableSQLParams(structure interface{}) (combinedInsertionFields string, insertionValues []interface{}, err error) {
-	typeof := reflect.TypeOf(structure).Elem()
-	if typeof.Kind() != reflect.Struct {
-		return
+	typeof, valueof, ok := getStructTypeOfAndValueOf(structure)
+	if !ok {
+		return combinedInsertionFields, insertionValues, ErrMustBePointerToStruct
 	}
-
-	valueof := reflect.ValueOf(structure).Elem()
 
 	var (
 		insertionFieldIndex = 1
@@ -47,4 +48,20 @@ func StructToInsertableSQLParams(structure interface{}) (combinedInsertionFields
 	combinedInsertionFields = strings.Join(insertionFields, ", ")
 
 	return
+}
+
+func getStructTypeOfAndValueOf(s interface{}) (typeof reflect.Type, valueof reflect.Value, ok bool) {
+	typeof = reflect.TypeOf(s)
+	if typeof.Kind() != reflect.Ptr {
+		return
+	}
+
+	typeof = typeof.Elem()
+	if typeof.Kind() != reflect.Struct {
+		return
+	}
+
+	valueof = reflect.ValueOf(s).Elem()
+
+	return typeof, valueof, true
 }

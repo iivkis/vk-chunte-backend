@@ -35,7 +35,12 @@ func TestStructToSQLParams(t *testing.T) {
 
 	fmt.Println(values)
 
-	//with err
-	_, _, err = StructToInsertableSQLParams(&struct{}{})
+}
+
+func TestStructToSQLParamsInvalidArgumet(t *testing.T) {
+	_, _, err := StructToInsertableSQLParams(&struct{}{})
+	require.Error(t, err)
+
+	_, _, err = StructToInsertableSQLParams(struct{}{})
 	require.Error(t, err)
 }
