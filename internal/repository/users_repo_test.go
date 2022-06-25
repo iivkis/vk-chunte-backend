@@ -4,18 +4,10 @@ import (
 	"context"
 	"testing"
 
-	"github.com/iivkis/vk-chunte/config"
 	"github.com/iivkis/vk-chunte/internal/entities"
 	"github.com/iivkis/vk-chunte/internal/util"
 	"github.com/stretchr/testify/require"
 )
-
-var repo *Repository
-
-func init() {
-	config.Load("./../../.env")
-	repo = NewRespository()
-}
 
 func createUser(t *testing.T) *entities.User {
 	var (
@@ -44,18 +36,35 @@ func TestCreateUser(t *testing.T) {
 }
 
 func TestUpdateUser(t *testing.T) {
-	user := createUser(t)
+	current := createUser(t)
 
-	newAge := uint(54)
+	var (
+		newName string = util.GetRandomString(util.GetRandomInt(1, 100))
+		newAge  uint   = uint(util.GetRandomInt(14, 100))
+	)
 
-	updatedUserFields := &entities.User{
-		Age: &newAge,
+	updatedFields := &entities.User{
+		Name: &newName,
+		Age:  &newAge,
 	}
 
-	user1, err := repo.Users.Update(context.Background(), *user.ID, updatedUserFields)
+	err := util.ValidateStruct(updatedFields)
+	require.NoError(t, err)
+
+	updatedUser, err := repo.Users.Update(context.Background(), *current.ID, updatedFields)
 
 	require.NoError(t, err)
-	require.Equal(t, *user1.ID, *user.ID)
-	require.Equal(t, *user1.Name, *user.Name)
-	require.Equal(t, *user1.Age, *updatedUserFields.Age)
+	require.Equal(t, updatedUser.ID, current.ID)
+	require.Equal(t, updatedUser.VkID, current.VkID)
+	require.Equal(t, updatedUser.Name, updatedFields.Name)
+	require.Equal(t, updatedUser.Age, updatedFields.Age)
+	require.Equal(t, updatedUser.CreatedAt, current.CreatedAt)
+}
+
+func TestGetUserByID(t *testing.T) {
+	current := createUser(t)
+	found, err := repo.Users.GetByID(context.Background(), *current.ID)
+
+	require.NoError(t, err)
+	require.Equal(t, current, found)
 }
