@@ -18,11 +18,13 @@ func NewUsersRepo(store *store) Users {
 }
 
 func (r *UsersRepo) scan(row *sql.Row) (user *entities.User, err error) {
+	user = new(entities.User)
 	err = row.Scan(
 		&user.ID,
 		&user.VkID,
 		&user.Name,
 		&user.Age,
+		&user.CreatedAt,
 	)
 	return
 }
@@ -31,7 +33,7 @@ func (r *UsersRepo) Create(ctx context.Context, user *entities.User) (*entities.
 	query := `INSERT INTO users (
 		vk_id,
 		name,
-		age 
+		age
 	) VALUES ($1, $2, $3) RETURNING *;`
 
 	row := r.store.db.QueryRowContext(ctx, query, user.VkID, user.Name, user.Age)

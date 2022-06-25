@@ -19,6 +19,10 @@ migrate-up:
 migrate-down:
 	migrate -path internal/repository/migration -database=${DB_URL} -verbose down
 
+migrate-down-up:
+	migrate -path internal/repository/migration -database=${DB_URL} -verbose down 
+	migrate -path internal/repository/migration -database=${DB_URL} -verbose up 
+
 create-db:
 	docker exec -it postgres14 createdb --username=root --owner=root vk-chunte
 
