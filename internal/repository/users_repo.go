@@ -13,7 +13,7 @@ type UsersRepo struct {
 	store *store
 }
 
-func NewUsersRepo(store *store) *UsersRepo {
+func NewUsersRepo(store *store) Users {
 	return &UsersRepo{store: store}
 }
 
@@ -43,7 +43,7 @@ func (r *UsersRepo) Create(ctx context.Context, user *entities.User) (*entities.
 }
 
 func (r *UsersRepo) Update(ctx context.Context, id int, user *entities.User) (*entities.User, error) {
-	fields, values, err := util.StructToSQLParams(user)
+	fields, values, err := util.StructToInsertableSQLParams(user)
 	if err != nil {
 		return nil, err
 	}

@@ -26,7 +26,7 @@ func TestStructToSQLParams(t *testing.T) {
 		Age:  &age,
 	}
 
-	fields, values, err := StructToSQLParams(&test)
+	fields, values, err := StructToInsertableSQLParams(&test)
 	require.NoError(t, err)
 	require.Equal(t, fields, "id = $1, name = $2, age = $3")
 	require.Equal(t, values[0], test.ID)
@@ -36,6 +36,6 @@ func TestStructToSQLParams(t *testing.T) {
 	fmt.Println(values)
 
 	//with err
-	_, _, err = StructToSQLParams(&struct{}{})
+	_, _, err = StructToInsertableSQLParams(&struct{}{})
 	require.Error(t, err)
 }

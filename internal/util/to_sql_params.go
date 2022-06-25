@@ -10,7 +10,7 @@ import (
 // takes a pointer to the structure
 // use tag "db" in structs as field name
 // return combined insertionfields in format "name = $1, age = $2"
-func StructToSQLParams(structure interface{}) (combinedInsertionFields string, insertionValues []interface{}, err error) {
+func StructToInsertableSQLParams(structure interface{}) (combinedInsertionFields string, insertionValues []interface{}, err error) {
 	typeof := reflect.TypeOf(structure).Elem()
 	if typeof.Kind() != reflect.Struct {
 		return
@@ -24,8 +24,8 @@ func StructToSQLParams(structure interface{}) (combinedInsertionFields string, i
 	)
 
 	for i := 0; i < typeof.NumField(); i++ {
-		fieldName, ok := typeof.Field(i).Tag.Lookup("db")
-		if !ok {
+		fieldNameFromTag, ex := typeof.Field(i).Tag.Lookup("db")
+		if !ex {
 			continue
 		}
 
@@ -34,15 +34,17 @@ func StructToSQLParams(structure interface{}) (combinedInsertionFields string, i
 			continue
 		}
 
-		insertionFields = append(insertionFields, fieldName+" = $"+strconv.Itoa(insertionFieldIndex))
-		insertionFieldIndex++
-
+		insertionFields = append(insertionFields, fieldNameFromTag+" = $"+strconv.Itoa(insertionFieldIndex))
 		insertionValues = append(insertionValues, fieldValue.Interface())
+
+		insertionFieldIndex++
 	}
 
 	if len(insertionFields) == 0 {
 		return "", insertionValues, fmt.Errorf("there are no inserted fields")
 	}
 
-	return strings.Join(insertionFields, ", "), insertionValues, nil
+	combinedInsertionFields = strings.Join(insertionFields, ", ")
+
+	return
 }

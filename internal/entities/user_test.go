@@ -2,41 +2,86 @@ package entities
 
 import (
 	"testing"
+	"time"
 
 	"github.com/iivkis/vk-chunte/internal/util"
 	"github.com/stretchr/testify/require"
 )
 
-func createUser() *User {
-	var (
-		vkID uint   = uint(util.GetRandomInt(1, 99999))
-		age  uint   = uint(util.GetRandomInt(1, 100))
-		name string = util.GetRandomString(util.GetRandomInt(1, 200))
-	)
+type userTest struct {
+	ID        int
+	VkID      uint
+	Name      string
+	Age       uint
+	CreatedAt time.Time
+}
 
-	return &User{
-		VkID: &vkID,
-		Name: &name,
-		Age:  &age,
+func TestUserValidateCorrect(t *testing.T) {
+	users := make([]userTest, 5)
+
+	for i := range users {
+		users[i] = userTest{
+			ID:   util.GetRandomInt(1, 1000),
+			VkID: uint(util.GetRandomInt(1, 1000)),
+			Name: util.GetRandomString(util.GetRandomInt(1, 100)),
+			Age:  uint(util.GetRandomInt(14, 100)),
+		}
+	}
+
+	for _, user := range users {
+		u := User{
+			ID:   &user.ID,
+			VkID: &user.VkID,
+			Name: &user.Name,
+			Age:  &user.Age,
+		}
+
+		err := util.ValidateStruct(u)
+		require.NoError(t, err)
 	}
 }
 
-func TestUserValidation(t *testing.T) {
-	var user1 = createUser()
-	err1 := user1.Validation(true)
-	require.NoError(t, err1)
+func TestUserValidateOnNilFields(t *testing.T) {
+	var (
+		ID   = util.GetRandomInt(1, 1000)
+		VkID = uint(util.GetRandomInt(1, 1000))
+	)
 
-	var user2 = createUser()
-	err2 := user2.Validation(false)
-	require.NoError(t, err2)
+	user := User{
+		ID:   &ID,
+		VkID: &VkID,
+	}
 
-	var user3 = createUser()
-	user3.Age = nil
-	err3 := user3.Validation(false)
-	require.Error(t, err3)
+	err := util.ValidateStruct(user)
+	require.NoError(t, err)
+}
 
-	var user4 = createUser()
-	user4.Age = nil
-	err4 := user4.Validation(true)
-	require.NoError(t, err4)
+func TestUserValidateIncorrect(t *testing.T) {
+	users := []userTest{
+		{
+			ID:   util.GetRandomInt(1, 1000),
+			VkID: uint(util.GetRandomInt(1, 1000)),
+			Name: util.GetRandomString(util.GetRandomInt(101, 1000)), //incorrect
+			Age:  uint(util.GetRandomInt(101, 1000)),                 //incorrect
+		},
+
+		{
+			ID:   util.GetRandomInt(1, 1000),
+			VkID: uint(util.GetRandomInt(1, 1000)),
+			Name: "", //incorrect
+			Age:  0,  //incorrect
+		},
+	}
+
+	for _, user := range users {
+		u := User{
+			ID:   &user.ID,
+			VkID: &user.VkID,
+			Name: &user.Name,
+			Age:  &user.Age,
+		}
+
+		err := util.ValidateStruct(u)
+		require.Error(t, err)
+	}
 }

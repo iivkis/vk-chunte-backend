@@ -30,9 +30,6 @@ func createUser(t *testing.T) *entities.User {
 		Age:  &Age,
 	}
 
-	err := entity.Validation(false)
-	require.NoError(t, err)
-
 	user, err := repo.Users.Create(context.Background(), entity)
 	require.NoError(t, err)
 	require.Equal(t, user.VkID, entity.VkID)
