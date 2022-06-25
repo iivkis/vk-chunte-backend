@@ -59,3 +59,14 @@ func (r *UsersRepo) Update(ctx context.Context, id int, user *entities.User) (*e
 
 	return r.scan(row)
 }
+
+func (r *UsersRepo) GetByID(ctx context.Context, id int) (user *entities.User, err error) {
+	query := `SELECT * FROM "users" WHERE id = $1`
+
+	row := r.store.db.QueryRowContext(ctx, query, id)
+	if row.Err() != nil {
+		return nil, err
+	}
+
+	return r.scan(row)
+}
